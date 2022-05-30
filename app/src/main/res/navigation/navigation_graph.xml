@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="ru.zubrilin.buysomebread.presenter.MainFragment"
+        android:name="ru.zubrilin.buysomebread.presenter.main.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action

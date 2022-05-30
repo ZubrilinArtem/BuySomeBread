@@ -1,4 +1,4 @@
-package ru.zubrilin.buysomebread.model
+package ru.zubrilin.buysomebread.data.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -10,5 +10,5 @@ import java.util.*
 data class Task(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     @ColumnInfo val name: String = "",
-    @ColumnInfo val date: Date = Date()
+    @ColumnInfo val date: String = ""
 )

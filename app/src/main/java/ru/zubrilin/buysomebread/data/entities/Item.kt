@@ -1,4 +1,4 @@
-package ru.zubrilin.buysomebread.model
+package ru.zubrilin.buysomebread.data.entities
 
 data class Item(
     val name:String,

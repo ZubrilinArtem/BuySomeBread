@@ -1,11 +1,12 @@
 package ru.zubrilin.buysomebread.data
 
-import androidx.lifecycle.LiveData
-import ru.zubrilin.buysomebread.model.Task
+import kotlinx.coroutines.flow.Flow
+import ru.zubrilin.buysomebread.data.entities.Task
+
 
 interface DataBaseRepository {
 
-    val allTasks:LiveData<List<Task>>
+    val allTasks:Flow<List<Task>>
 
     suspend fun insert(task: Task)
 

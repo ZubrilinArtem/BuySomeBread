@@ -26,7 +26,7 @@
             tools:text="name task list" />
 
         <TextView
-            android:id="@+id/tvContComplete"
+            android:id="@+id/tvCountComplete"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:padding="@dimen/app_padding"
@@ -40,13 +40,13 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/tvCont"
+            app:layout_constraintEnd_toStartOf="@+id/tvCount"
             app:layout_constraintTop_toTopOf="parent"
             android:text="@string/slash"
             />
 
         <TextView
-            android:id="@+id/tvCont"
+            android:id="@+id/tvCount"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:padding="@dimen/app_padding"
