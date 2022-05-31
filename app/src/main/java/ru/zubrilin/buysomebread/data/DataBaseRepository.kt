@@ -12,6 +12,6 @@ interface DataBaseRepository {
 
     suspend fun delete(task: Task)
 
-    suspend fun update()
+    suspend fun update(task: Task)
 
 }

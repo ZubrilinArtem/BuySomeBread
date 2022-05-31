@@ -21,6 +21,8 @@ class TaskFragment : Fragment() {
 
     private var _binding: FragmentTaskBinding? = null
     private val binding get() = _binding!!
+    private var task: Task? = null
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,12 +34,25 @@ class TaskFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        task = arguments?.getSerializable("task") as Task
         binding.btnSave.setOnClickListener{onClickSave()}
     }
 
+    override fun onStart() {
+        super.onStart()
+
+        if (task != null){
+            binding.editName.setText(task?.name)
+        }
+
+    }
+
     private fun onClickSave(){
-        viewModel.insert(Task(name = binding.editName.text.toString()))
+        if (task != null){
+            viewModel.update(Task(id = task!!.id, name = binding.editName.text.toString()))
+        }else{
+            viewModel.insert(Task(name = binding.editName.text.toString()))
+        }
         findNavController().navigate(R.id.action_taskFragment_to_mainFragment)
     }
 

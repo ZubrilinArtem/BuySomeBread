@@ -1,5 +1,6 @@
 package ru.zubrilin.buysomebread.presenter.main
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
+import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -54,10 +56,11 @@ class MainFragment : Fragment() {
     }
 
     companion object{
-        fun click(task: Task){
+        fun click(task: Task, context: Context){
             val bundle = Bundle()
-            //bundle.putSerializable("task", Task)
-
+            bundle.putSerializable("task", task)
+            (context.applicationContext as App).app_activity
+                .navController.navigate(R.id.action_mainFragment_to_taskFragment, bundle)
         }
     }
 

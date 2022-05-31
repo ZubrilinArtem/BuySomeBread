@@ -20,13 +20,19 @@ class MainTaskAdapter: ListAdapter<Task, MainTaskAdapter.TaskViewHolder>(TaskCom
         return currentList.size
     }
 
-    override fun onViewAttachedToWindow(holder: TaskViewHolder) {
-
-        super.onViewAttachedToWindow(holder)
-    }
-
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         holder.bind(currentList[position])
+    }
+
+    override fun onViewAttachedToWindow(holder: TaskViewHolder) {
+        holder.itemView.setOnClickListener{
+            MainFragment.click(currentList[holder.adapterPosition], holder.itemView.context)
+        }
+    }
+
+    override fun onViewDetachedFromWindow(holder: TaskViewHolder) {
+        holder.itemView.setOnClickListener(null)
+        super.onViewDetachedFromWindow(holder)
     }
 
     class TaskViewHolder(view: View): RecyclerView.ViewHolder(view){

@@ -18,7 +18,7 @@ class DataBaseRoomRepository(private val dataBaseDAO: DataBaseDAO): DataBaseRepo
         dataBaseDAO.delete(task)
     }
 
-    override suspend fun update() {
-        //todo update dao
+    override suspend fun update(task: Task) {
+        dataBaseDAO.update(task)
     }
 }

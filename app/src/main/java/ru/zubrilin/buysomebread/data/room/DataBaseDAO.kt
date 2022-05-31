@@ -16,4 +16,7 @@ interface DataBaseDAO {
     @Delete
     suspend fun delete(task: Task)
 
+    @Update
+    suspend fun update(task: Task)
+
 }

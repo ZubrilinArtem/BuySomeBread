@@ -13,6 +13,10 @@ class TaskViewModel(private val repository: DataBaseRepository): ViewModel() {
         repository.insert(task)
     }
 
+    fun update(task: Task) = viewModelScope.launch {
+        repository.update(task)
+    }
+
     class TaskViewModelFactory(private val repository: DataBaseRepository): ViewModelProvider.Factory{
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(TaskViewModel::class.java)){
