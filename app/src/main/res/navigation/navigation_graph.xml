@@ -33,5 +33,10 @@
             app:destination="@id/mainFragment"
             app:launchSingleTop="true"
             app:popUpTo="@id/navigation_graph" />
+        <argument
+            android:name="task"
+            app:argType="ru.zubrilin.buysomebread.data.entities.Task"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
 </navigation>

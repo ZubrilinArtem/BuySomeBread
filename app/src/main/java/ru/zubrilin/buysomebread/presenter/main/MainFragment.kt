@@ -19,6 +19,9 @@ import ru.zubrilin.buysomebread.R
 import ru.zubrilin.buysomebread.data.entities.Task
 import ru.zubrilin.buysomebread.databinding.FragmentMainBinding
 import ru.zubrilin.buysomebread.model.MainViewModel
+import ru.zubrilin.buysomebread.presenter.TaskFragment
+import ru.zubrilin.buysomebread.presenter.TaskFragmentArgs
+import ru.zubrilin.buysomebread.presenter.TaskFragmentDirections
 
 class MainFragment : Fragment() {
 
@@ -57,10 +60,8 @@ class MainFragment : Fragment() {
 
     companion object{
         fun click(task: Task, context: Context){
-            val bundle = Bundle()
-            bundle.putSerializable("task", task)
             (context.applicationContext as App).app_activity
-                .navController.navigate(R.id.action_mainFragment_to_taskFragment, bundle)
+                .navController.navigate(MainFragmentDirections.actionMainFragmentToTaskFragment(task))
         }
     }
 

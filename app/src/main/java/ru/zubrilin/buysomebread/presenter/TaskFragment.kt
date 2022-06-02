@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavArgs
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import ru.zubrilin.buysomebread.App
 import ru.zubrilin.buysomebread.R
 import ru.zubrilin.buysomebread.databinding.FragmentTaskBinding
@@ -23,6 +25,7 @@ class TaskFragment : Fragment() {
     private val binding get() = _binding!!
     private var task: Task? = null
 
+    val args: TaskFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +37,7 @@ class TaskFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        task = arguments?.getSerializable("task") as Task
+        task = args.task
         binding.btnSave.setOnClickListener{onClickSave()}
     }
 

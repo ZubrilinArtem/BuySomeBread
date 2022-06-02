@@ -5,10 +5,17 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import kotlinx.coroutines.CoroutineScope
+import ru.zubrilin.buysomebread.data.entities.Category
+import ru.zubrilin.buysomebread.data.entities.Item
+import ru.zubrilin.buysomebread.data.entities.Nomenclature
 import ru.zubrilin.buysomebread.data.entities.Task
 
-@Database(entities = arrayOf(Task::class), version = 1, exportSchema = false)
-abstract class AbstractDataBaseDao: RoomDatabase() {
+@Database(
+    entities = [Task::class, Category::class, Nomenclature::class, Item::class],
+    version = 2,
+    exportSchema = false
+)
+abstract class AbstractDataBaseDao : RoomDatabase() {
 
     abstract fun getDao(): DataBaseDAO
 
@@ -17,12 +24,12 @@ abstract class AbstractDataBaseDao: RoomDatabase() {
         private var INSTANCE: AbstractDataBaseDao? = null
 
         fun getDatabase(context: Context, scope: CoroutineScope): AbstractDataBaseDao {
-            return INSTANCE ?: synchronized(this){
+            return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     AbstractDataBaseDao::class.java,
                     "buy_some_bread"
-                ).build()
+                ).fallbackToDestructiveMigration().build()
                 INSTANCE = instance
                 instance
             }
