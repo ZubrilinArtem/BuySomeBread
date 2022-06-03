@@ -2,16 +2,10 @@ package ru.zubrilin.buysomebread.presenter.main
 
 import android.content.Context
 import android.os.Bundle
+import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.zubrilin.buysomebread.App
@@ -19,9 +13,6 @@ import ru.zubrilin.buysomebread.R
 import ru.zubrilin.buysomebread.data.entities.Task
 import ru.zubrilin.buysomebread.databinding.FragmentMainBinding
 import ru.zubrilin.buysomebread.model.MainViewModel
-import ru.zubrilin.buysomebread.presenter.TaskFragment
-import ru.zubrilin.buysomebread.presenter.TaskFragmentArgs
-import ru.zubrilin.buysomebread.presenter.TaskFragmentDirections
 
 class MainFragment : Fragment() {
 
@@ -39,6 +30,11 @@ class MainFragment : Fragment() {
         return binding.root
     }
 
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val mainAdapter = MainTaskAdapter()
@@ -51,6 +47,18 @@ class MainFragment : Fragment() {
         binding.btnAdd.setOnClickListener{
             findNavController().navigate(R.id.action_mainFragment_to_taskFragment)
         }
+
+        binding.bottomAppBar.setOnMenuItemClickListener(this::onMenuClick)
+
+    }
+
+    private fun onMenuClick(menuItem: MenuItem): Boolean{
+        when (menuItem.itemId){
+            R.id.settings -> {
+                Toast.makeText(context, "settings", Toast.LENGTH_SHORT).show()
+            }
+        }
+        return true
     }
 
     override fun onDestroy() {

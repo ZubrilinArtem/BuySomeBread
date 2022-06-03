@@ -41,7 +41,7 @@ class MainTaskAdapter: ListAdapter<Task, MainTaskAdapter.TaskViewHolder>(TaskCom
 
         fun bind(task: Task) = with(binding){
             tvName.text = task.name
-            tvCount.text = "0"
+            tvCount.text = task.count.toString()
             tvCountComplete.text = "0"
         }
 

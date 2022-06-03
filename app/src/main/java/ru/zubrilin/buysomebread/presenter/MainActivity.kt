@@ -2,6 +2,7 @@ package ru.zubrilin.buysomebread.presenter
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import ru.zubrilin.buysomebread.App
@@ -21,7 +22,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         navController = Navigation.findNavController(this, R.id.navHost)
         (applicationContext as App).app_activity = this
-            }
+    }
+
 
     override fun onDestroy() {
         super.onDestroy()

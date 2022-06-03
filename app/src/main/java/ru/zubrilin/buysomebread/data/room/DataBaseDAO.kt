@@ -7,7 +7,7 @@ import ru.zubrilin.buysomebread.data.entities.Task
 @Dao
 interface DataBaseDAO {
 
-    @Query("SELECT task_table.id, task_table.name, COUNT(items_table.id) as 'count' FROM task_table LEFT JOIN items_table ON task_table.id = items_table.task_id")
+    @Query("SELECT task_table.id, task_table.name, COUNT(items_table.id) as 'count', task_table.date FROM task_table LEFT JOIN items_table ON task_table.id = items_table.task_id group by task_table.id")
     fun getAllTask(): Flow<List<Task>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

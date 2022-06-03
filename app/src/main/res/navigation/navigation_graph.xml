@@ -21,7 +21,9 @@
         tools:layout="@layout/fragment_main" >
         <action
             android:id="@+id/action_mainFragment_to_taskFragment"
-            app:destination="@id/taskFragment" />
+            app:destination="@id/taskFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/taskFragment"
@@ -31,6 +33,8 @@
         <action
             android:id="@+id/action_taskFragment_to_mainFragment"
             app:destination="@id/mainFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
             app:launchSingleTop="true"
             app:popUpTo="@id/navigation_graph" />
         <argument

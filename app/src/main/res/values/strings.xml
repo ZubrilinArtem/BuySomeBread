@@ -5,4 +5,8 @@
     <string name="slash">/</string>
     <string name="task_name">Название</string>
     <string name="btn_save">Сохранить</string>
+    <string name="fab_add_list">Добавить список</string>
+    <string name="category">Категории</string>
+    <string name="dictionary">Словарь</string>
+    <string name="settings">Настройки</string>
 </resources>

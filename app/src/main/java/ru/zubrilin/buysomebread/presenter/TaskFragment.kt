@@ -52,9 +52,9 @@ class TaskFragment : Fragment() {
 
     private fun onClickSave(){
         if (task != null){
-            viewModel.update(Task(id = task!!.id, name = binding.editName.text.toString()))
+            viewModel.update(Task(id = task!!.id, name = binding.editName.text.toString(), count = 0, date = ""))
         }else{
-            viewModel.insert(Task(name = binding.editName.text.toString()))
+            viewModel.insert(Task(name = binding.editName.text.toString(), count = 1, date = ""))
         }
         findNavController().navigate(R.id.action_taskFragment_to_mainFragment)
     }

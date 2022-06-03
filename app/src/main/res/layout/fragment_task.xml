@@ -17,14 +17,39 @@
         android:hint="@string/task_name"
         />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnSave"
-        android:text="@string/btn_save"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/cl"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:backgroundTint="@color/design_default_color_primary"
+        app:fabCradleRoundedCornerRadius="10dp"
+        app:fabCradleVerticalOffset="10dp"
+        app:fabAlignmentMode="end"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:menu="@menu/bottom_menu" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnSave"
+            android:layout_width="117dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/design_default_color_secondary"
+            android:clickable="true"
+            android:contentDescription="@string/fab_add_list"
+            android:src="@drawable/ic_save"
+            app:hideOnScroll="true"
+            app:layout_anchor="@+id/bottomAppBar"
+            app:layout_anchorGravity="top|center" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

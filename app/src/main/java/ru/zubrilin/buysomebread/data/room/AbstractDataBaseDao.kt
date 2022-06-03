@@ -12,7 +12,7 @@ import ru.zubrilin.buysomebread.data.entities.Task
 
 @Database(
     entities = [Task::class, Category::class, Nomenclature::class, Item::class],
-    version = 2,
+    version = 5,
     exportSchema = false
 )
 abstract class AbstractDataBaseDao : RoomDatabase() {
